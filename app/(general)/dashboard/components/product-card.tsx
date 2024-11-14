@@ -32,7 +32,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
     push(`${pathname}?${params.toString()}`);
 
-    if (drawer.current)
+    if (drawer)
       drawer.current!.checked = true
 
   };

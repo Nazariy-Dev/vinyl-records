@@ -27,7 +27,7 @@ export interface SearchParams {
     addGenreQuery: string
     page: string,
     productID: string,
-    sortingOption?: "priceDescending" | "priceAcsending" | "dateAdded"
+    sortingOption?: "priceDescending" | "priceAscending" | "dateAdded"
 
   }
 }
@@ -37,7 +37,7 @@ export default async function Dashboard({ searchParams }: SearchParams) {
   const genresQuery = searchParams.genresQuery || ''
   const authorQuery = searchParams.authorQuery || ''
   const productID = searchParams.productID || ''
-  const sortingOption = searchParams.sortingOption || ''
+  const sortingOption = searchParams.sortingOption
 
 
   const units: IUnits[] = JSON.parse(JSON.stringify((await fetchUnits())))
@@ -53,7 +53,7 @@ export default async function Dashboard({ searchParams }: SearchParams) {
         <div className=' flex items-center justify-between'>
           <Title>Dashboard</Title>
           <details className="dropdown dropdown-end">
-            <summary className="btn btn-md bg-transparent border-none shadow-none">
+            <summary className="btn btn-md bg-transparent border-none ˝-none">
               <FontAwesomeIcon className='w-6 h-6' icon={faGear} />
             </summary>
             <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">

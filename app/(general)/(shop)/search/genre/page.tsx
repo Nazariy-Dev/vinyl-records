@@ -6,7 +6,7 @@ import { fetchProducts, fetchProductsPage } from '@/app/lib/data';
 import { SearchParams } from '@/app/lib/definitions';
 import ProductsWrapper from '../../components/products-wrapper';
 import CardsSkeleton from '../../components/skeletons/cards';
-import Breadcrumbs from '@/app/(general)/components/breadcrumbs';
+
 import Title from '@/app/(general)/components/title';
 import Sort from '../../(home)/sort';
 

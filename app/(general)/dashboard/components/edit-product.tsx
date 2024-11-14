@@ -127,7 +127,8 @@ export default function EditProduct({ units, genres, authors, product }: FormPro
 
         formData.unitsInAlbum = units.find(val => val.name = data.unitsInAlbum)!._id
 
-        drawer.current!.checked = false
+        if (drawer)
+            drawer.current!.checked = false
         await updateRecord(formData)
     }
     const debouncedFetchGenresOptions = useMemo(
@@ -161,7 +162,7 @@ export default function EditProduct({ units, genres, authors, product }: FormPro
 
     const drawer = useContext(Context)
 
-    const [imagePreview, setImagePreview] = useState(image);
+    const [imagePreview, setImagePreview] = useState<string | ArrayBuffer | null>(image);
 
     useEffect(() => {
         setImagePreview(image)
@@ -200,7 +201,7 @@ export default function EditProduct({ units, genres, authors, product }: FormPro
                                 <label htmlFor="image" className='font-semibold'>Image</label>
                                 <input {...register("image", { onChange: (e) => handleImageChange(e) })} id="image" type="file" className="file-input file-input-bordered file-input-secondary w-full max-w-xs" />
                                 {imagePreview && (
-                                    <img src={imagePreview} alt="Preview" className="w-24 mt-4" />
+                                    <img src={typeof imagePreview == "string" ? imagePreview : ""} alt="Preview" className="w-24 mt-4" />
                                 )}
                                 {errors.image && <div className=" text-red-500">{errors.image.message}</div>}
                             </label>
@@ -338,7 +339,7 @@ export default function EditProduct({ units, genres, authors, product }: FormPro
                                             <DatePicker onChange={(newValue) => onChange(newValue)} defaultValue={dayjs(new Date(releaseDate))} />
                                         </LocalizationProvider>
                                     )} />
-                                {errors.releaseDate && <div className=" text-red-500">{errors.releaseDate.message}</div>}
+                                {errors.releaseDate && <div className=" text-red-500">{typeof errors.releaseDate.message == "string" ?  errors.releaseDate.message : ""}</div>}
 
                             </label>
 

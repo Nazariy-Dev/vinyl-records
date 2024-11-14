@@ -2,10 +2,12 @@
 
 import React, { MutableRefObject, PropsWithChildren, useRef } from 'react'
 
-export const Context = React.createContext<MutableRefObject<HTMLInputElement | null>>(null)
+type DrawerContextType = MutableRefObject<HTMLInputElement | null> | null;
+
+export const Context = React.createContext<DrawerContextType>(null)
 
 export default function DashboarWwrapper({ children }: PropsWithChildren) {
-    const drawer = useRef<HTMLInputElement | null>(null);
+    const drawer = useRef<HTMLInputElement>(null);
     
     return (
         <Context.Provider value={drawer}>

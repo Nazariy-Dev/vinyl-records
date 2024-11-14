@@ -1,5 +1,5 @@
 
-import { fetchProducts, fetchProductsPage } from "@/app/lib/data";
+import { fetchProductsPage } from "@/app/lib/data";
 import Title from "../../components/title";
 import Products from "../components/products";
 import Pagination from "../components/pagination";

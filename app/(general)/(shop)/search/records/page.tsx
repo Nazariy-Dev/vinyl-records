@@ -1,8 +1,7 @@
 
 import { Suspense } from 'react';
-import Products from '../../components/products';
 import Pagination from '../../components/pagination';
-import { fetchProducts, fetchProductsPage } from '@/app/lib/data';
+import { fetchProductsPage } from '@/app/lib/data';
 import { SearchParams } from '@/app/lib/definitions';
 import ProductsWrapper from '../../components/products-wrapper';
 import CardsSkeleton from '../../components/skeletons/cards';

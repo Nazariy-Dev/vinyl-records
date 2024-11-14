@@ -1,6 +1,6 @@
 'use client'
 
-import { z } from "zod"
+import { string, z } from "zod"
 import { useForm, Controller, useFieldArray } from "react-hook-form"
 import { Autocomplete, TextField, debounce } from '@mui/material';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -45,7 +45,7 @@ const schema = z.object({
     releaseDate: z.preprocess((val: any) => val ? val.$d : null, z.date({ message: "Date is required" })),
     quantity: z.coerce.number().min(1, { message: "Pleaase, add quantity" }),
     iFrame: z.string().regex(iFrameLinkRegex, { message: "Enter valid link" }).optional().or(z.literal("")),
-    songs: z.array(z.string().min(1, { message: "Song name cannot be empty" }))
+    songs: z.array(z.any())
 })
 
 export type FormFields = z.infer<typeof schema>
@@ -208,7 +208,7 @@ export default function AddProduct({ units, genres, authors }: FormProps) {
                                                     Remove
                                                 </button>
                                             </div>
-                                            {errors.songs && <div className="text-red-500 mt-2">{errors.songs[index]?.message}</div>}
+                                            {errors.songs && <div className="text-red-500 mt-2">{typeof errors.songs[index]?.message  == "string"  ? errors.songs[index]?.message : ""}</div>}
                                         </div>
                                     ))}
 
