@@ -1,8 +1,36 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
+import localFont from 'next/font/local'
 
-const inter = Inter({ subsets: ["latin"] });
+
+const gilroy = localFont(
+  {
+    src: [
+      {
+        path: './assets/fonts/Gilroy-Regular.woff',
+        weight: '400',
+        style: 'normal',
+      },
+      {
+        path: './assets/fonts/Gilroy-Medium.woff',
+        weight: '500',
+        style: 'normal',
+      },
+      {
+        path: './assets/fonts/Gilroy-SemiBold.woff',
+        weight: '600',
+        style: 'normal',
+      },
+      {
+        path: './assets/fonts/Gilroy-Bold.woff',
+        weight: '700',
+        style: 'normal',
+      },
+    ],
+  }
+)
+
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +43,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="text-xs lg:text-sm">
+      <body className={gilroy.className}>
+        {children}
+      </body>
     </html>
   );
 }
