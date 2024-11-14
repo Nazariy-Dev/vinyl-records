@@ -1,7 +1,7 @@
 'use client'
 
 import { IRecord } from '@/app/models/definitions/IRecord';
-import useCart from '@/app/store/store';
+import useCart, { ICartItem } from '@/app/store/store';
 import Stripe from "stripe";
 
 
@@ -12,12 +12,12 @@ export default function OverviewSection({ product }: { product: IRecord }) {
 
 
     const onProductClick = () => {
-        const newProduct = {
+        const newProduct: ICartItem = {
             name,
             priceId,
             unit_amount,
             quantity: 1,
-            author,
+            author: author.name,
             image
         }
         addItemToCartd({ newProduct })
