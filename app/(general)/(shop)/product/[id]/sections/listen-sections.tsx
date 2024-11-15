@@ -8,7 +8,7 @@ export default function ListenSections({iframeLink}: {iframeLink: string}) {
             <SectionHeader>
                 <div className='text-secondary'>Listen</div>
             </SectionHeader>
-            <iframe className='rounded-md ' src={iframeLink} width="50%" height="352" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe className='rounded-md w-full md:w-1/2' src={iframeLink} height="352" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
     )
 }

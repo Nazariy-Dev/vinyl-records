@@ -15,17 +15,18 @@ export default function Cart() {
 
   return (
     <div className='py-10 px-6 container h-screen mx-auto'>
-      <Link href={'/'} className='flex items-center gap-4 mb-6'>
+      <Link href={'/'} className='flex items-center gap-4 mb-6 '>
         <FontAwesomeIcon height={"20px"} icon={faArrowLeft} />
         <div className='text-2xl hover:underline'>back to shop</div>
       </Link>
-      {/* <CartOverview/> */}
-      <div className='flex gap-16 justify-between'>
+      <div className='flex gap-16 justify-between md:flex-row flex-col'>
         {cartItems.length > 0 ?
-          <><CartOverview />
+          <>
+            <CartOverview />
             <CartForm />
           </>
-          : <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1.5 font-semibold text-4xl '>"Cart is empty :"</div>}
+          : 
+          <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1.5 font-semibold text-4xl '>"Cart is empty :"</div>}
       </div>
     </div>
   )

@@ -21,11 +21,11 @@ export default async function Page({ searchParams }: SearchParams) {
   return (
     <>
       <div className="flex justify-between items-center mb-6">
-        <Title>Popular relaeses</Title>
+        <h2 className="text-5xl font-bold">Popular relaeses</h2>
         <Sort />
       </div>
       <div className="flex flex-col ">
-        <Suspense fallback={<CardsSkeleton />} key={query + currentPage}>
+        <Suspense fallback={<CardsSkeleton />} key={query + currentPage + sortingOption}>
           <ProductsWrapper query={query} page={currentPage} sortingOption={sortingOption}/>
         </Suspense>
         {totalPages > 1 &&

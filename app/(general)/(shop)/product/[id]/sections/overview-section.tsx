@@ -24,11 +24,11 @@ export default function OverviewSection({ product }: { product: IRecord }) {
     }
 
     return (
-        <div className='flex gap-28 mb-[64px]'>
-            <div className='w-full'>
+        <div className='flex gap-4 sm:gap-28 mb-[64px] sm:flex-row flex-col'>
+            <div className='w-full flex items-center'>
                 <img className='w-full aspect-square object-cover' src={image} alt="" />
             </div>
-            <div className='flex flex-col w-full justify-between pt-9'>
+            <div className='flex flex-col w-full justify-between pt-9 gap-6 sm:gap-4'>
                 <div>
                     <div className='mb-2 text-4xl font-semibold '>
                         {name}

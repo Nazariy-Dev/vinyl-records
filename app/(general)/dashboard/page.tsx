@@ -50,8 +50,8 @@ export default async function Dashboard({ searchParams }: SearchParams) {
   return (
     <div className='container mx-auto p-5'>
       <DashboarWwrapper>
-        <div className=' flex items-center justify-between'>
-          <Title>Dashboard</Title>
+        <div className=' flex items-center justify-between mb-6'>
+          <h2 className="text-5xl font-bold">Dashboard</h2>
           <details className="dropdown dropdown-end">
             <summary className="btn btn-md bg-transparent border-none ˝-none">
               <FontAwesomeIcon className='w-6 h-6' icon={faGear} />
@@ -83,7 +83,7 @@ export default async function Dashboard({ searchParams }: SearchParams) {
           </div>
         </div>
         <ProductList products={products} />
-        {product && <EditProduct product={product} units={units} genres={genres} authors={authors} />}
+        <EditProduct product={product} units={units} genres={genres} authors={authors} />
       </DashboarWwrapper>
     </div>
   )

@@ -14,13 +14,13 @@ export default async function ProductPage({ params: { id } }: ProductPageProps) 
     const product = JSON.parse(await fetchProduct(id));
 
     return (
-        <div>
+        <>
             {product &&
                 <>
                     <OverviewSection product={product} />
                     <SongsSectons songs={product.songs} />
                     <ListenSections iframeLink={product.iFramelink} />
                 </>}
-        </div>
+        </>
     )
 }

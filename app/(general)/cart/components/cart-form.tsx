@@ -36,7 +36,7 @@ export default function CartForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="w-1/2 flex flex-col gap-10">
+        <form onSubmit={handleSubmit(onSubmit)} className="md:w-1/2 flex flex-col gap-10">
             <h2 className="text-3xl font-semibold">1. Personal Info</h2>
             <div className="grid grid-cols-2 gap-y-16 gap-x-[25%] grid-rows-2">
                 <div className=" relative">

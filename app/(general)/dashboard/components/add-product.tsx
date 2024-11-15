@@ -148,7 +148,7 @@ export default function AddProduct({ units, genres, authors }: FormProps) {
                 </div>
                     <div className="drawer-side overflow-hidden z-[1000]">
                         <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
-                        <ul className="menu bg-base-200 text-base-content min-h-full w-2/5 p-4 pr-8 pb-8">
+                        <ul className="menu bg-base-200 text-base-content min-h-full w-4/5 md:w-2/5 p-4 pr-8 pb-8">
                             <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-4'>
                                 <label className='flex flex-col gap-2'>
                                     <label htmlFor="name" className='font-semibold'>Name: </label>

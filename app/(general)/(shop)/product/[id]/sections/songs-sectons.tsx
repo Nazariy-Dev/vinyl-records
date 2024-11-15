@@ -6,7 +6,7 @@ export default function SongsSectons({ songs }: { songs: string[] }) {
     <div className='mb-14'>
       <SectionHeader>Songs in this record</SectionHeader>
       {songs.length > 0
-        ? <div className='flex gap-2 flex-col'>
+        ? <div className='flex gap-2 flex-col text-xl'>
           {songs.map(val => <div>{val}</div>)}
         </div>
         : "We will add songs soon..."

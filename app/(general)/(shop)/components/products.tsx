@@ -10,7 +10,7 @@ export default function Products({ products }: { products: IRecord[] }) {
             {products.length == 0 &&
                 <div className="text-xl font-semibold text-center mt-[20%]">Sorry, we don't have records of this genre yet</div>
             }
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 grid-rows-[max-content] gap-10 pb-8 flex-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid-rows-[max-content] gap-10 pb-8 flex-1">
                 {products.map((product) => {
                     
                     // return <ProductCard key={product.priceId} product={product} />

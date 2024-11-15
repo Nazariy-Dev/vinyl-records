@@ -14,7 +14,7 @@ import { convertToBase64 } from "@/app/lib/fuctions";
 import { IAuthor } from "@/app/models/definitions/IAuthor";
 import { IUnits } from "@/app/models/definitions/IUnits";
 import { IGenres } from "@/app/models/definitions/IGenres";
-import {  IEditRecordRequest } from "@/app/lib/definitions";
+import { IEditRecordRequest } from "@/app/lib/definitions";
 import { IRecord } from "@/app/models/definitions/IRecord";
 import dayjs from "dayjs";
 import { Context } from "./dashboard-wrapper";
@@ -72,13 +72,15 @@ interface FormProps {
 
 export default function EditProduct({ units, genres, authors, product }: FormProps) {
     const { name, unitsInAlbum, price, quantity, iFramelink, songs, author, genres: product_genres, releaseDate, _id, productId, image } = product
+
+
     const { replace } = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
 
     const { register, control, handleSubmit, formState: { isSubmitting, errors, isSubmitted }, getValues } = useForm<FormFields>({
         resolver: zodResolver(schema),
-        values: {
+        values: product && {
             name,
             unitsInAlbum: unitsInAlbum.name,
             price,
@@ -189,7 +191,7 @@ export default function EditProduct({ units, genres, authors, product }: FormPro
                 </div>
                 <div className="drawer-side overflow-hidden z-[1000]">
                     <label htmlFor="my-drawer-5" aria-label="close sidebar" className="drawer-overlay"></label>
-                    <ul className="menu bg-base-200 text-base-content min-h-full w-2/5 p-4 pr-8 pb-8">
+                    <ul className="menu bg-base-200 text-base-content min-h-full w-4/5 md:w-2/5 p-4 pr-8 pb-8">
                         <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-4'>
                             <label className='flex flex-col gap-2'>
                                 <label htmlFor="name" className='font-semibold'>Name: </label>
@@ -339,7 +341,7 @@ export default function EditProduct({ units, genres, authors, product }: FormPro
                                             <DatePicker onChange={(newValue) => onChange(newValue)} defaultValue={dayjs(new Date(releaseDate))} />
                                         </LocalizationProvider>
                                     )} />
-                                {errors.releaseDate && <div className=" text-red-500">{typeof errors.releaseDate.message == "string" ?  errors.releaseDate.message : ""}</div>}
+                                {errors.releaseDate && <div className=" text-red-500">{typeof errors.releaseDate.message == "string" ? errors.releaseDate.message : ""}</div>}
 
                             </label>
 

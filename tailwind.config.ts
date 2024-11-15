@@ -16,7 +16,7 @@ const config: Config = {
       },
       gridTemplateColumns: {
         'autoResize': 'repeat(auto-fit, minmax(200px, 1fr))',
-      }
+    }
     },
   },
   plugins: [daisyui],
