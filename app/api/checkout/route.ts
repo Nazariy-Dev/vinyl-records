@@ -16,8 +16,8 @@ export async function POST(request: Request) {
         const stripe = new Stripe(process.env.STRIPE_SECRET ?? '')
 
         const session = await stripe.checkout.sessions.create({
-            success_url: 'http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}',
-            cancel_url: 'http://localhost:3000/cancel',
+            success_url: `${process.env.SITE_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `${process.env.SITE_URL}/cancel`,
             line_items: body.lineItems,
             mode: 'payment'
         })

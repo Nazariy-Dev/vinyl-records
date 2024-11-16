@@ -2,14 +2,9 @@
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-
-import { useSearchParams, usePathname, useRouter } from 'next/navigation';
-import { useDebouncedCallback } from 'use-debounce';
-
-
+import {  useRouter } from 'next/navigation';
 
 export default function Search() {
-    const searchParams = useSearchParams();
     const { push } = useRouter();
 
     const handleSearch = (term: string) => {
