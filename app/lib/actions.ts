@@ -160,15 +160,15 @@ export async function authenticate(
     try {
 
         await signIn('credentials', formData);
-    } catch (error) {
-        if (error instanceof AuthError) {
+    } catch (error: any) {
+        // if (error instanceof AuthError) {
             switch (error.type) {
                 case 'CredentialsSignin':
                     return 'Invalid credentials.';
                 default:
                     return 'Something went wrong.';
             }
-        }
+        // }
         // throw error;
     }
 }
